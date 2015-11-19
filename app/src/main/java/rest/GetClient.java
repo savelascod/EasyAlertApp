@@ -4,14 +4,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
-
-import java.util.List;
 
 /**
  * Created by mordreth on 10/2/15.
@@ -20,12 +16,10 @@ public class GetClient extends AsyncTask<Void, Void, String> {
     private String url;
     private Context context;
     private AsyncResponse delegate;
-    private List<NameValuePair> params;
 
-    public GetClient(String url, AsyncResponse delegate, List<NameValuePair> params) {
+    public GetClient(String url, AsyncResponse delegate) {
         this.url = url;
         this.delegate = delegate;
-        this.params = params;
     }
 
     public GetClient(String url, Context context) {
@@ -56,7 +50,6 @@ public class GetClient extends AsyncTask<Void, Void, String> {
         HttpGet request = new HttpGet(this.url);
         String response = null;
         request.addHeader("Accept", "application/json");
-        request.setParams((HttpParams) this.params);
         try {
             response = EntityUtils.toString(client.execute(request).getEntity());
         } catch (Exception ex) {
