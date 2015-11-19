@@ -3,7 +3,6 @@ package rest;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -54,7 +53,6 @@ public class GetClient extends AsyncTask<Void, Void, String> {
             response = EntityUtils.toString(client.execute(request).getEntity());
         } catch (Exception ex) {
             Log.e("ServicioRestGET", "Error!", ex);
-            Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show();
         }
 
         return response;
