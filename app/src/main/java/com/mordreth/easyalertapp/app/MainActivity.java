@@ -56,6 +56,9 @@ public class MainActivity extends Activity implements AsyncResponse {
         params.add(new BasicNameValuePair("$format", "json"));
         params.add(new BasicNameValuePair("$top", "30"));
 
+        ((EasyAlert) getApplication()).getMasterCaller().getData(
+                "v1/superintendencia_de_vigilancia_y_seguridad_privada/directoriodeservicios",
+                this, params);
     }
 
     @Override
