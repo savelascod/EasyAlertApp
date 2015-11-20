@@ -72,19 +72,19 @@ public class MainActivity extends Activity implements AsyncResponse {
         if (nitText.getText().toString() != null && nitText.getText().toString() != "") {
             filters.add("\"nit\"" + "=" + nitText.getText().toString());
         }
-        if (serviceTypeText.getText().toString() != null && serviceTypeText.getText().toString() != "") {
+        if (serviceTypeText.getText().toString() != null && !serviceTypeText.getText().equals("")) {
             filters.add("\"tiposervicio\"" + "=" + "\'" + serviceTypeText.getText().toString() + "\'");
         }
-        if (razonSocialText.getText().toString() != null && razonSocialText.getText().toString() != "") {
+        if (razonSocialText.getText().toString() != null && !razonSocialText.getText().equals("")) {
             filters.add("\"razonsocial\"" + "=" + "\'" + razonSocialText.getText().toString() + "\'");
         }
-        if (addressText.getText().toString() != null && addressText.getText().toString() != "") {
+        if (addressText.getText().toString() != null && !addressText.getText().equals("")) {
             filters.add("\"direccion\"" + "=" + "\'" + addressText.getText().toString() + "\'");
         }
-        if (phoneText.getText().toString() != null && phoneText.getText().toString() != "") {
+        if (phoneText.getText().toString() != null && !phoneText.getText().equals("")) {
             filters.add("\"telefonofijovigilado\"" + "=" + phoneText.getText().toString());
         }
-        if (emailText.getText().toString() != null && emailText.getText().toString() != "") {
+        if (emailText.getText().toString() != null && !emailText.getText().toString().equals("")) {
             filters.add("\"correoelectronicovigilado\"" + "=" + "\'" + emailText.getText().toString() + "\'");
         }
 
