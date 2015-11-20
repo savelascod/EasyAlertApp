@@ -55,7 +55,7 @@ public class MyServiceAdapter extends ArrayAdapter<Service> {
             TextView typeText = (TextView) view.findViewById(R.id.service_type);
             TextView nitText = (TextView) view.findViewById(R.id.service_nit);
             TextView emailText = (TextView) view.findViewById(R.id.service_email);
-            TextView phoneText = (TextView) view.findViewById(R.id.phone);
+            TextView phoneText = (TextView) view.findViewById(R.id.service_phone);
 
             // check to see if each individual textview is null.
             // if not, assign some text!

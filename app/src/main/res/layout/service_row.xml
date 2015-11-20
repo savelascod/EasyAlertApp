@@ -46,7 +46,7 @@
             android:layout_marginLeft="5dip"
             android:id="@+id/service_phone"
             android:layout_below="@+id/service_email"
-            android:text="Aliment Email"
+            android:text="Phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10dp"/>
