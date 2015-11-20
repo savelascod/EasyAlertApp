@@ -31,14 +31,14 @@
                     android:id="@+id/nit"
                     android:layout_marginTop="15dp"
                     android:layout_below="@+id/textView2"
-                    android:layout_centerHorizontal="true" android:text="NIT"/>
+                    android:layout_centerHorizontal="true" android:hint="NIT"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/service_type"
                     android:layout_below="@+id/nit"
                     android:layout_centerHorizontal="true"
-                    android:text="Tipo de Servicio"
+                    android:hint="Tipo de Servicio"
                     android:inputType="number"
                     android:ems="10"/>
             <EditText
@@ -47,7 +47,7 @@
                     android:ems="10"
                     android:id="@+id/razon_social"
                     android:layout_centerHorizontal="true"
-                    android:text="Razon social"
+                    android:hint="Razon social"
                     android:layout_below="@id/service_type"/>
             <EditText
                     android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                     android:ems="10"
                     android:id="@+id/address"
                     android:layout_centerHorizontal="true"
-                    android:text="Direccion"
+                    android:hint="Direccion"
                     android:layout_below="@id/razon_social"/>
             <EditText
                     android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                     android:ems="10"
                     android:id="@+id/phone"
                     android:layout_centerHorizontal="true"
-                    android:text="Telefono"
+                    android:hint="Telefono"
                     android:layout_below="@id/address"
                     android:inputType="number"/>
             <EditText
@@ -72,7 +72,7 @@
                     android:ems="10"
                     android:id="@+id/email"
                     android:layout_centerHorizontal="true"
-                    android:text="Email"
+                    android:hint="Email"
                     android:layout_below="@id/phone"/>
             <EditText
                     android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
                     android:ems="10"
                     android:id="@+id/representative"
                     android:layout_centerHorizontal="true"
-                    android:text="Representante legal"
+                    android:hint="Representante legal"
                     android:layout_below="@id/email"/>
             <Button android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

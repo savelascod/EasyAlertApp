@@ -2,6 +2,7 @@ package com.mordreth.easyalertapp.app;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +45,22 @@ public class MainActivity extends Activity implements AsyncResponse {
     }
 
     public void sendData(View view) {
+
+        ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("$format", "json"));
+        params.add(new BasicNameValuePair("$top", "30"));
+        params.add(new BasicNameValuePair("$filter", setFilters()));
+
+        Log.v("params", params.toString());
+
+        ((EasyAlert) getApplication()).getMasterCaller().getData(
+                "v1/superintendencia_de_vigilancia_y_seguridad_privada/directoriodeservicios",
+                this, params);
+    }
+
+    public String setFilters() {
+        String streamFilters = "";
+        ArrayList<String> filters = new ArrayList<String>();
         EditText nitText = (EditText) findViewById(R.id.nit);
         EditText serviceTypeText = (EditText) findViewById(R.id.service_type);
         EditText razonSocialText = (EditText) findViewById(R.id.razon_social);
@@ -52,13 +69,33 @@ public class MainActivity extends Activity implements AsyncResponse {
         EditText emailText = (EditText) findViewById(R.id.email);
         EditText representativeText = (EditText) findViewById(R.id.representative);
 
-        ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("$format", "json"));
-        params.add(new BasicNameValuePair("$top", "30"));
+        if (nitText.getText().toString() != null && nitText.getText().toString() != "") {
+            filters.add("\"nit\"" + "=" + nitText.getText().toString());
+        }
+        if (serviceTypeText.getText().toString() != null && serviceTypeText.getText().toString() != "") {
+            filters.add("\"tiposervicio\"" + "=" + "\'" + serviceTypeText.getText().toString() + "\'");
+        }
+        if (razonSocialText.getText().toString() != null && razonSocialText.getText().toString() != "") {
+            filters.add("\"razonsocial\"" + "=" + "\'" + razonSocialText.getText().toString() + "\'");
+        }
+        if (addressText.getText().toString() != null && addressText.getText().toString() != "") {
+            filters.add("\"direccion\"" + "=" + "\'" + addressText.getText().toString() + "\'");
+        }
+        if (phoneText.getText().toString() != null && phoneText.getText().toString() != "") {
+            filters.add("\"telefonofijovigilado\"" + "=" + phoneText.getText().toString());
+        }
+        if (emailText.getText().toString() != null && emailText.getText().toString() != "") {
+            filters.add("\"correoelectronicovigilado\"" + "=" + "\'" + emailText.getText().toString() + "\'");
+        }
 
-        ((EasyAlert) getApplication()).getMasterCaller().getData(
-                "v1/superintendencia_de_vigilancia_y_seguridad_privada/directoriodeservicios",
-                this, params);
+        for (int i = 0; i < filters.size() - 1; i++) {
+            streamFilters += filters.get(i) + "and";
+        }
+        if (!filters.isEmpty()) {
+            streamFilters += filters.get(filters.size() - 1);
+        }
+        Log.v("filters", streamFilters);
+        return streamFilters;
     }
 
     @Override
