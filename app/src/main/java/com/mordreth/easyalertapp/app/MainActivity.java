@@ -49,8 +49,10 @@ public class MainActivity extends Activity implements AsyncResponse {
         ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("$format", "json"));
         params.add(new BasicNameValuePair("$top", "30"));
-        params.add(new BasicNameValuePair("$filter", setFilters()));
-
+        String filters = setFilters();
+        if (!filters.equals("")) {
+            params.add(new BasicNameValuePair("$filter", filters));
+        }
         Log.v("params", params.toString());
 
         ((EasyAlert) getApplication()).getMasterCaller().getData(
@@ -69,22 +71,22 @@ public class MainActivity extends Activity implements AsyncResponse {
         EditText emailText = (EditText) findViewById(R.id.email);
         EditText representativeText = (EditText) findViewById(R.id.representative);
 
-        if (nitText.getText().toString() != null && nitText.getText().toString() != "") {
-            filters.add("\"nit\"" + "=" + nitText.getText().toString());
+        if (nitText.getText().toString() != null && !nitText.getText().equals("") && nitText.getText().length() != 0) {
+            filters.add("\"nit\"" + "=" + "\'" + nitText.getText().toString() + "\'");
         }
-        if (serviceTypeText.getText().toString() != null && !serviceTypeText.getText().equals("")) {
+        if (serviceTypeText.getText() != null && !serviceTypeText.getText().equals("") && serviceTypeText.getText().length() != 0) {
             filters.add("\"tiposervicio\"" + "=" + "\'" + serviceTypeText.getText().toString() + "\'");
         }
-        if (razonSocialText.getText().toString() != null && !razonSocialText.getText().equals("")) {
+        if (razonSocialText.getText() != null && !razonSocialText.getText().equals("") && razonSocialText.getText().length() != 0) {
             filters.add("\"razonsocial\"" + "=" + "\'" + razonSocialText.getText().toString() + "\'");
         }
-        if (addressText.getText().toString() != null && !addressText.getText().equals("")) {
+        if (addressText.getText() != null && !addressText.getText().equals("") && addressText.getText().length() != 0) {
             filters.add("\"direccion\"" + "=" + "\'" + addressText.getText().toString() + "\'");
         }
-        if (phoneText.getText().toString() != null && !phoneText.getText().equals("")) {
-            filters.add("\"telefonofijovigilado\"" + "=" + phoneText.getText().toString());
+        if (phoneText.getText() != null && !phoneText.getText().equals("") && phoneText.getText().length() != 0) {
+            filters.add("\"telefonofijovigilado\"" + "=" + "\'" + phoneText.getText().toString() + "\'");
         }
-        if (emailText.getText().toString() != null && !emailText.getText().toString().equals("")) {
+        if (emailText.getText() != null && !emailText.getText().equals("") && emailText.getText().length() != 0) {
             filters.add("\"correoelectronicovigilado\"" + "=" + "\'" + emailText.getText().toString() + "\'");
         }
 
