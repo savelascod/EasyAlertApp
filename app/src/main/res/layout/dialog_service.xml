@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+                      android:orientation="vertical">
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Tipo de servicio: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/service_type_dg" android:textSize="15dp" android:text="Service Type"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="NIT: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/nit_dg" android:textSize="15dp" android:text="NIT"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Razon Social: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/razon_social_dg" android:textSize="15dp" android:text="razon Social"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Direccion: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/direccion_dg" android:textSize="15dp" android:text="Direccion"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Telefono: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/phone_dg" android:textSize="15dp" android:text="Telefono"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Correo: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/email_dg" android:textSize="15dp" android:text="Correo"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal"
+                          android:layout_height="wrap_content" android:padding="5dp">
+                <TextView android:textColor="@color/red" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Representante: " android:textSize="15dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:id="@+id/representante_dg" android:textSize="15dp" android:text="Represenante"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
