@@ -10,16 +10,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import rest.AsyncResponse;
 
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements AsyncResponse {
+    JSONArray jsonServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        jsonServices = new JSONArray();
     }
 
     @Override
@@ -102,6 +107,20 @@ public class MainActivity extends Activity implements AsyncResponse {
 
     @Override
     public void processFinish(String result) {
+        saveJsonObjects(result);
+        Log.v("json", jsonServices.toString());
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+    }
+
+    private void saveJsonObjects(String result) {
+        try {
+            JSONObject jsonObject = new JSONObject(result);
+            if (jsonObject.length() > 0) {
+                jsonServices = jsonObject.getJSONArray("d");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
