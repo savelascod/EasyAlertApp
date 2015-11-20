@@ -1,13 +1,13 @@
 package com.mordreth.easyalertapp.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -108,8 +108,17 @@ public class MainActivity extends Activity implements AsyncResponse {
     @Override
     public void processFinish(String result) {
         saveJsonObjects(result);
-        Log.v("json", jsonServices.toString());
-        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+
+        startServicesActivity();
+    }
+
+    private void startServicesActivity() {
+        Intent intent = new Intent(this, ServicesActivity.class);
+        Bundle values = new Bundle();
+        values.putString("services", jsonServices.toString());
+        intent.putExtras(values);
+        startActivity(intent);
+        finish();
     }
 
     private void saveJsonObjects(String result) {
